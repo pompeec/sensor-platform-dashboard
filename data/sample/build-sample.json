@@ -1,0 +1,7 @@
+{
+  "LiDAR Perception Firmware": { "source": "build", "nightlyHealthPct": 90.0, "flakyRatePct": 5.0 },
+  "Radar Calibration Suite": { "source": "build", "nightlyHealthPct": 85.0, "flakyRatePct": 9.5 },
+  "Camera ISP Tuning Pipeline": { "source": "build", "nightlyHealthPct": 97.0, "flakyRatePct": 1.2 },
+  "Sensor Fusion SDK": { "source": "build", "nightlyHealthPct": 92.0, "flakyRatePct": 4.0 },
+  "IMU Driver Qualification": { "source": "build", "nightlyHealthPct": 99.0, "flakyRatePct": 0.5 }
+}

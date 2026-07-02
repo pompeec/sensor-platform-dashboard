@@ -1,0 +1,13 @@
+{
+  "name": "sensor-platform-dashboard",
+  "version": "1.0.0",
+  "description": "AI-powered program signal console for sensor platform TPM roles: real Jira/GitLab/build integrations, a risk-scoring engine, and Claude-generated executive narratives.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/riskEngine.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

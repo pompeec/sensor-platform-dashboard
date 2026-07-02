@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Program Signal Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Sensor Platform Engineering &mdash; Program Insights</div>
+      <h1>Program Signal Console</h1>
+      <div class="sub">Live read on Jira, GitLab, and build signals across sensor platform workstreams, scored by <code>src/riskEngine.js</code> and narrated on demand by Claude.</div>
+    </div>
+    <div class="status" id="status-badge"><span class="dot"></span> <span id="status-text">Loading signals&hellip;</span></div>
+  </header>
+
+  <div class="convergence">
+    <div class="convergence-title">Program Health</div>
+    <div class="streams">
+      <div class="dial" id="dial" style="--score:0;--dial-color:var(--warn);">
+        <div class="dial-inner">
+          <div class="dial-num" id="dial-num">&mdash;</div>
+          <div class="dial-label">Program Health</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Sensor Platform Workstreams</h2>
+      <span class="mono" style="font-size:11px;">GET /api/signals &mdash; live if .env is configured, sample data otherwise</span>
+    </div>
+    <table>
+      <thead><tr><th>Workstream</th><th>Jira Risk</th><th>Pipeline</th><th>Build</th><th>Risk Score</th><th>Trend</th></tr></thead>
+      <tbody id="program-rows"><tr><td colspan="6" class="mono">Fetching /api/signals&hellip;</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="ai-panel">
+    <div class="ai-head">
+      <div>
+        <h2>AI Program Narrative</h2>
+        <div class="ai-sub">Calls <code>GET /api/report</code>, which runs <code>src/aiReport.js</code> against the real Anthropic Messages API.</div>
+      </div>
+      <button id="gen-btn" onclick="generateNarrative()">Generate Executive Summary</button>
+    </div>
+    <div class="narrative-box" id="narrative-out">
+      <span class="placeholder">Click "Generate Executive Summary" to call the live /api/report endpoint.</span>
+    </div>
+  </div>
+
+  <footer id="footer-note">DEMO &mdash; connect your Jira, GitLab, and Anthropic credentials in .env to make this fully live. See README.md.</footer>
+</div>
+<script src="dashboard.js"></script>
+</body>
+</html>
