@@ -55,6 +55,39 @@ tr:last-child td{border-bottom:none;}
 .r-safe{background:var(--safe);} .r-warn{background:var(--warn);} .r-crit{background:var(--crit);}
 .mono{font-family:var(--font-mono);color:var(--muted);}
 
+/* risk-level row tinting — makes critical rows impossible to miss */
+tr.row-crit{background:rgba(245,73,92,.09);}
+tr.row-crit td:first-child{border-left:3px solid var(--crit);padding-left:8px;}
+tr.row-warn{background:rgba(255,176,32,.05);}
+tr.row-warn td:first-child{border-left:3px solid var(--warn);padding-left:8px;}
+tr.row-safe td:first-child{border-left:3px solid transparent;padding-left:8px;}
+
+.stat-flag{color:var(--crit) !important;font-weight:700;}
+.score-cell{font-weight:700;font-size:14px;}
+.score-cell.risk-crit{color:var(--crit);}
+.score-cell.risk-warn{color:var(--warn);}
+.score-cell.risk-safe{color:var(--safe);}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:var(--muted);margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+.legend b{color:var(--text);}
+
+.clickable-row{cursor:pointer;}
+.clickable-row:hover{background:rgba(255,255,255,.03);}
+.expand-cell{width:20px;color:var(--muted);}
+.chevron{display:inline-block;font-size:10px;}
+
+.detail-row.hidden{display:none;}
+.detail-row td{padding:0;border-bottom:1px solid var(--line);}
+.ticket-list{padding:6px 10px 14px 34px;display:flex;flex-direction:column;gap:8px;}
+.ticket{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;}
+.ticket-key{font-family:var(--font-mono);color:var(--jira);font-weight:600;margin-right:10px;}
+.ticket-prio{font-family:var(--font-mono);font-size:10px;padding:2px 7px;border-radius:10px;margin-right:8px;text-transform:uppercase;letter-spacing:.04em;}
+.prio-crit{background:rgba(245,73,92,.15);color:var(--crit);}
+.prio-warn{background:rgba(255,176,32,.15);color:var(--warn);}
+.prio-normal{background:rgba(124,138,168,.15);color:var(--muted);}
+.ticket-status{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+.ticket-summary{margin-top:5px;color:var(--text);}
+
 .ai-panel{background:linear-gradient(145deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:12px;padding:22px;}
 .ai-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
 .ai-head h2{font-family:var(--font-display);font-size:16px;margin:0;font-weight:600;}

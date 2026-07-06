@@ -45,7 +45,7 @@ function classify(score) {
  * Shape: [{ name, jira, gitlab, build, previousScore? }]
  */
 function scoreWorkstreams(workstreams) {
-  return workstreams.map((w) => {
+  const scored = workstreams.map((w) => {
     const score = computeProgramHealth({ jira: w.jira, gitlab: w.gitlab, build: w.build });
     const trend = typeof w.previousScore === "number" ? score - w.previousScore : null;
     return {
@@ -53,11 +53,30 @@ function scoreWorkstreams(workstreams) {
       score,
       risk: classify(score),
       jiraRisk: w.jira ? classify(100 - w.jira.openBlockers * 15 - w.jira.slaBreaches7d * 20) : "warn",
+      // Raw Jira defect signal — surfaced so the dashboard can show real numbers,
+      // not just a Low/Elevated/High label.
+      jiraDetail: w.jira
+        ? {
+            openBlockers: w.jira.openBlockers,
+            slaBreaches7d: w.jira.slaBreaches7d,
+            unestimatedStories: w.jira.unestimatedStories,
+            avgAgeP1Days: w.jira.avgAgeP1Days,
+            topIssues: w.jira.topIssues || [],
+          }
+        : null,
       pipelinePassRate: w.gitlab ? w.gitlab.pipelinePassRate : null,
+      openMRs: w.gitlab ? w.gitlab.openMRs : null,
+      avgReviewHours: w.gitlab ? w.gitlab.avgReviewHours : null,
       buildHealth: w.build ? w.build.nightlyHealthPct : null,
+      flakyRatePct: w.build ? w.build.flakyRatePct : null,
       trend,
     };
   });
+
+  // Worst risk first — the whole point of a risk table is surfacing what
+  // needs attention without making the reader scan for it.
+  const order = { crit: 0, warn: 1, safe: 2 };
+  return scored.sort((a, b) => order[a.risk] - order[b.risk] || a.score - b.score);
 }
 
 module.exports = { computeProgramHealth, classify, scoreWorkstreams };

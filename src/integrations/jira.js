@@ -47,6 +47,15 @@ function ageInDays(createdIso) {
   return (Date.now() - new Date(createdIso).getTime()) / (1000 * 60 * 60 * 24);
 }
 
+function toIssueSummary(issue) {
+  return {
+    key: issue.key,
+    summary: issue.fields.summary,
+    priority: issue.fields.priority ? issue.fields.priority.name : "Unknown",
+    status: issue.fields.status ? issue.fields.status.name : "Unknown",
+  };
+}
+
 /**
  * Fetches and computes risk signals for one Jira project.
  * Returns null if credentials aren't configured, so callers can fall back
@@ -68,6 +77,10 @@ async function fetchJiraRiskSignals(projectKey = process.env.JIRA_PROJECT_KEY) {
     ? p1s.reduce((sum, i) => sum + ageInDays(i.fields.created), 0) / p1s.length
     : 0;
 
+  // Surface real ticket detail for the top blockers + SLA breaches so the
+  // dashboard can show what's actually wrong, not just a count.
+  const topIssues = [...blockers, ...breaches].slice(0, 5).map(toIssueSummary);
+
   return {
     source: "jira",
     project: projectKey,
@@ -75,6 +88,7 @@ async function fetchJiraRiskSignals(projectKey = process.env.JIRA_PROJECT_KEY) {
     slaBreaches7d: breaches.length,
     unestimatedStories: unestimated.length,
     avgAgeP1Days: Math.round(avgAgeP1 * 10) / 10,
+    topIssues,
     fetchedAt: new Date().toISOString(),
   };
 }

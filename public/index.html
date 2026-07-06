@@ -36,9 +36,14 @@
       <h2>GenAI Platform Workstreams</h2>
       <span class="mono" style="font-size:11px;">GET /api/signals &mdash; live if .env is configured, sample data otherwise</span>
     </div>
+    <div class="legend">
+      <span><b>Open Blockers</b> = Highest-priority issues still unresolved</span>
+      <span><b>SLA Breaches (7d)</b> = tickets that missed their response/resolution SLA in the last 7 days</span>
+      <span>Click a row to see the actual tickets driving the numbers</span>
+    </div>
     <table>
-      <thead><tr><th>Workstream</th><th>Jira Risk</th><th>Pipeline</th><th>Build</th><th>Risk Score</th><th>Trend</th></tr></thead>
-      <tbody id="program-rows"><tr><td colspan="6" class="mono">Fetching /api/signals&hellip;</td></tr></tbody>
+      <thead><tr><th></th><th>Workstream</th><th>Open Blockers</th><th>SLA Breaches (7d)</th><th>Pipeline Pass</th><th>Build Health</th><th>Risk Score</th><th>Trend</th></tr></thead>
+      <tbody id="program-rows"><tr><td colspan="8" class="mono">Fetching /api/signals&hellip;</td></tr></tbody>
     </table>
   </div>
 

@@ -1,7 +1,51 @@
 {
-  "RAG Retrieval Pipeline": { "source": "jira", "openBlockers": 1, "slaBreaches7d": 1, "unestimatedStories": 4, "avgAgeP1Days": 3.1 },
-  "Agent Orchestration Framework": { "source": "jira", "openBlockers": 3, "slaBreaches7d": 2, "unestimatedStories": 6, "avgAgeP1Days": 6.4 },
-  "Prompt & Guardrails Service": { "source": "jira", "openBlockers": 0, "slaBreaches7d": 0, "unestimatedStories": 1, "avgAgeP1Days": 0.8 },
-  "LLM Fine-Tuning Pipeline": { "source": "jira", "openBlockers": 1, "slaBreaches7d": 1, "unestimatedStories": 3, "avgAgeP1Days": 2.5 },
-  "Model Eval & Benchmarking": { "source": "jira", "openBlockers": 0, "slaBreaches7d": 0, "unestimatedStories": 0, "avgAgeP1Days": 0.3 }
+  "RAG Retrieval Pipeline": {
+    "source": "jira",
+    "openBlockers": 1,
+    "slaBreaches7d": 1,
+    "unestimatedStories": 4,
+    "avgAgeP1Days": 3.1,
+    "topIssues": [
+      { "key": "GENAI-311", "summary": "Vector store returns stale embeddings after reindex job", "priority": "Highest", "status": "In Progress" },
+      { "key": "GENAI-298", "summary": "Retrieval latency SLA breached during peak query load", "priority": "High", "status": "Open" }
+    ]
+  },
+  "Agent Orchestration Framework": {
+    "source": "jira",
+    "openBlockers": 3,
+    "slaBreaches7d": 2,
+    "unestimatedStories": 6,
+    "avgAgeP1Days": 6.4,
+    "topIssues": [
+      { "key": "GENAI-482", "summary": "Agent handoff loop causes duplicate tool calls under load", "priority": "Highest", "status": "In Progress" },
+      { "key": "GENAI-475", "summary": "Orchestrator deadlocks when sub-agent step times out mid-chain", "priority": "Highest", "status": "Blocked" },
+      { "key": "GENAI-491", "summary": "Guardrail check bypassed on retried agent steps", "priority": "Highest", "status": "Open" }
+    ]
+  },
+  "Prompt & Guardrails Service": {
+    "source": "jira",
+    "openBlockers": 0,
+    "slaBreaches7d": 0,
+    "unestimatedStories": 1,
+    "avgAgeP1Days": 0.8,
+    "topIssues": []
+  },
+  "LLM Fine-Tuning Pipeline": {
+    "source": "jira",
+    "openBlockers": 1,
+    "slaBreaches7d": 1,
+    "unestimatedStories": 3,
+    "avgAgeP1Days": 2.5,
+    "topIssues": [
+      { "key": "GENAI-356", "summary": "Fine-tuning job silently drops last checkpoint on OOM", "priority": "High", "status": "In Progress" }
+    ]
+  },
+  "Model Eval & Benchmarking": {
+    "source": "jira",
+    "openBlockers": 0,
+    "slaBreaches7d": 0,
+    "unestimatedStories": 0,
+    "avgAgeP1Days": 0.3,
+    "topIssues": []
+  }
 }
