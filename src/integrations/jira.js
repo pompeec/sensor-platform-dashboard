@@ -14,7 +14,7 @@
 //   JIRA_BASE_URL      e.g. https://your-domain.atlassian.net
 //   JIRA_EMAIL         your Atlassian account email
 //   JIRA_API_TOKEN     the API token generated above
-//   JIRA_PROJECT_KEY   e.g. "SENS" for a "Sensor Platform" project
+//   JIRA_PROJECT_KEY   e.g. "GENAI" for a "GenAI Platform" project
 
 function authHeader() {
   const { JIRA_EMAIL, JIRA_API_TOKEN } = process.env;

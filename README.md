@@ -1,6 +1,6 @@
 # Program Signal Console
 
-An AI-powered program dashboard for sensor platform engineering: real Jira, GitLab, and build-system (GitHub Actions) integrations, a deterministic risk-scoring engine, and a Claude-generated executive narrative. Built as a working portfolio piece for sensor-platform TPM roles that ask for exactly this ("AI dashboards," "intelligent integrations," "AI-enhanced workflows").
+An AI-powered program dashboard for GenAI/LLM platform engineering: real Jira, GitLab, and build-system (GitHub Actions) integrations, a deterministic risk-scoring engine, and a Claude-generated executive narrative. Built as a working portfolio piece for AI-platform TPM roles that ask for exactly this ("AI dashboards," "intelligent integrations," "AI-enhanced workflows").
 
 **Zero external npm dependencies.** Runs on Node's built-in `http` + global `fetch` (Node 18+) so it starts with nothing more than `node server.js` — no `npm install` required, no network access needed to get running.
 
@@ -13,7 +13,7 @@ npm start                 # → http://localhost:3000
 npm test                  # runs the risk-engine unit tests
 ```
 
-Open `http://localhost:3000`. You'll see 5 sample sensor-platform workstreams (LiDAR Perception Firmware, Radar Calibration Suite, Camera ISP Tuning Pipeline, Sensor Fusion SDK, IMU Driver Qualification) scored by the same engine that would score live data. Click **Generate Executive Summary** — this calls `/api/report`, which calls the real Anthropic API. Without an `ANTHROPIC_API_KEY` it returns a clear message instead of fabricating output.
+Open `http://localhost:3000`. You'll see 5 sample GenAI platform workstreams (RAG Retrieval Pipeline, Agent Orchestration Framework, Prompt & Guardrails Service, LLM Fine-Tuning Pipeline, Model Eval & Benchmarking) scored by the same engine that would score live data. Click **Generate Executive Summary** — this calls `/api/report`, which calls the real Anthropic API. Without an `ANTHROPIC_API_KEY` it returns a clear message instead of fabricating output.
 
 ## Architecture
 
@@ -56,7 +56,7 @@ Fill in as many of these as you have access to. Each is independent — you can 
    - `JIRA_BASE_URL` — e.g. `https://your-domain.atlassian.net`
    - `JIRA_EMAIL` — your Atlassian account email
    - `JIRA_API_TOKEN` — the token from step 1
-   - `JIRA_PROJECT_KEY` — the project key to score (e.g. `SENS`)
+   - `JIRA_PROJECT_KEY` — the project key to score (e.g. `GENAI`)
 3. Note: the SLA-breach query assumes a `sla-breach` label applied by your Jira automation rules or SLA add-on, and the "unestimated" query assumes the default Story Points field. Both are one-line JQL edits in `src/integrations/jira.js` if your instance differs.
 
 ### 3. GitLab

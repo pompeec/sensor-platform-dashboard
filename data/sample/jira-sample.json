@@ -1,7 +1,7 @@
 {
-  "LiDAR Perception Firmware": { "source": "jira", "openBlockers": 1, "slaBreaches7d": 1, "unestimatedStories": 4, "avgAgeP1Days": 3.1 },
-  "Radar Calibration Suite": { "source": "jira", "openBlockers": 3, "slaBreaches7d": 2, "unestimatedStories": 6, "avgAgeP1Days": 6.4 },
-  "Camera ISP Tuning Pipeline": { "source": "jira", "openBlockers": 0, "slaBreaches7d": 0, "unestimatedStories": 1, "avgAgeP1Days": 0.8 },
-  "Sensor Fusion SDK": { "source": "jira", "openBlockers": 1, "slaBreaches7d": 1, "unestimatedStories": 3, "avgAgeP1Days": 2.5 },
-  "IMU Driver Qualification": { "source": "jira", "openBlockers": 0, "slaBreaches7d": 0, "unestimatedStories": 0, "avgAgeP1Days": 0.3 }
+  "RAG Retrieval Pipeline": { "source": "jira", "openBlockers": 1, "slaBreaches7d": 1, "unestimatedStories": 4, "avgAgeP1Days": 3.1 },
+  "Agent Orchestration Framework": { "source": "jira", "openBlockers": 3, "slaBreaches7d": 2, "unestimatedStories": 6, "avgAgeP1Days": 6.4 },
+  "Prompt & Guardrails Service": { "source": "jira", "openBlockers": 0, "slaBreaches7d": 0, "unestimatedStories": 1, "avgAgeP1Days": 0.8 },
+  "LLM Fine-Tuning Pipeline": { "source": "jira", "openBlockers": 1, "slaBreaches7d": 1, "unestimatedStories": 3, "avgAgeP1Days": 2.5 },
+  "Model Eval & Benchmarking": { "source": "jira", "openBlockers": 0, "slaBreaches7d": 0, "unestimatedStories": 0, "avgAgeP1Days": 0.3 }
 }

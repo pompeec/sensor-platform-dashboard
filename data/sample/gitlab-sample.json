@@ -1,7 +1,7 @@
 {
-  "LiDAR Perception Firmware": { "source": "gitlab", "openMRs": 5, "avgReviewHours": 16.2, "pipelinePassRate": 82.0 },
-  "Radar Calibration Suite": { "source": "gitlab", "openMRs": 8, "avgReviewHours": 27.4, "pipelinePassRate": 64.0 },
-  "Camera ISP Tuning Pipeline": { "source": "gitlab", "openMRs": 3, "avgReviewHours": 6.1, "pipelinePassRate": 93.0 },
-  "Sensor Fusion SDK": { "source": "gitlab", "openMRs": 4, "avgReviewHours": 13.9, "pipelinePassRate": 81.0 },
-  "IMU Driver Qualification": { "source": "gitlab", "openMRs": 1, "avgReviewHours": 4.0, "pipelinePassRate": 96.0 }
+  "RAG Retrieval Pipeline": { "source": "gitlab", "openMRs": 5, "avgReviewHours": 16.2, "pipelinePassRate": 82.0 },
+  "Agent Orchestration Framework": { "source": "gitlab", "openMRs": 8, "avgReviewHours": 27.4, "pipelinePassRate": 64.0 },
+  "Prompt & Guardrails Service": { "source": "gitlab", "openMRs": 3, "avgReviewHours": 6.1, "pipelinePassRate": 93.0 },
+  "LLM Fine-Tuning Pipeline": { "source": "gitlab", "openMRs": 4, "avgReviewHours": 13.9, "pipelinePassRate": 81.0 },
+  "Model Eval & Benchmarking": { "source": "gitlab", "openMRs": 1, "avgReviewHours": 4.0, "pipelinePassRate": 96.0 }
 }
