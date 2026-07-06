@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node test/riskEngine.test.js"
+    "test": "node test/riskEngine.test.js && node test/agentTools.test.js"
   },
   "keywords": [],
   "author": "",

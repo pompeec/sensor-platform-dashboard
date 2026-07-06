@@ -94,14 +94,29 @@ function toggleDetail(detailId, headerRow){
 async function generateNarrative(){
   const btn = document.getElementById('gen-btn');
   const out = document.getElementById('narrative-out');
+  const trace = document.getElementById('trace-box');
   btn.disabled = true;
-  btn.textContent = 'Generating…';
-  out.innerHTML = '<span class="placeholder">Calling /api/report…</span>';
+  btn.textContent = 'Investigating…';
+  out.innerHTML = '<span class="placeholder">Calling /api/report — Claude is deciding what to investigate…</span>';
+  trace.classList.add('hidden');
+  trace.innerHTML = '';
   try{
     const res = await fetch('/api/report');
     const data = await res.json();
     if (data.error) throw new Error(data.error);
     out.textContent = data.narrative;
+
+    if (data.toolCalls && data.toolCalls.length > 0) {
+      const steps = data.toolCalls.map((c, i) => `
+        <div class="trace-step">
+          <span class="trace-num">${i + 1}</span>
+          <span class="trace-tool">${c.tool}</span>
+          ${c.input && c.input.workstream ? `<span class="trace-arg">(${c.input.workstream})</span>` : ''}
+        </div>
+      `).join('');
+      trace.innerHTML = `<div class="trace-title">Agent investigation &mdash; ${data.toolCalls.length} tool call${data.toolCalls.length === 1 ? '' : 's'}, chosen by Claude</div>${steps}`;
+      trace.classList.remove('hidden');
+    }
   }catch(err){
     out.innerHTML = `<span class="placeholder">Error: ${err.message}</span>`;
   }finally{

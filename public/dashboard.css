@@ -88,6 +88,14 @@ tr.row-safe td:first-child{border-left:3px solid transparent;padding-left:8px;}
 .ticket-status{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
 .ticket-summary{margin-top:5px;color:var(--text);}
 
+.trace-box{margin-top:14px;background:var(--panel-2);border:1px dashed var(--line);border-radius:10px;padding:14px 16px;}
+.trace-box.hidden{display:none;}
+.trace-title{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.trace-step{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;padding:4px 0;color:var(--text);}
+.trace-num{background:var(--jira);color:#0a0f1c;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.trace-tool{color:var(--jira);}
+.trace-arg{color:var(--muted);}
+
 .ai-panel{background:linear-gradient(145deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:12px;padding:22px;}
 .ai-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
 .ai-head h2{font-family:var(--font-display);font-size:16px;margin:0;font-weight:600;}

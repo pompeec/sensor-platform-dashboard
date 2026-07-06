@@ -106,8 +106,8 @@ const server = http.createServer(async (req, res) => {
     if (req.url === "/api/report") {
       const { workstreams } = await buildWorkstreams();
       const scored = scoreWorkstreams(workstreams);
-      const narrative = await generateExecutiveNarrative({ workstreams: scored });
-      return sendJson(res, 200, { narrative });
+      const { narrative, toolCalls } = await generateExecutiveNarrative(scored);
+      return sendJson(res, 200, { narrative, toolCalls });
     }
 
     return serveStatic(req, res);

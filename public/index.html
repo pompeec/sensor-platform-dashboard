@@ -51,13 +51,14 @@
     <div class="ai-head">
       <div>
         <h2>AI Program Narrative</h2>
-        <div class="ai-sub">Calls <code>GET /api/report</code>, which runs <code>src/aiReport.js</code> against the real Anthropic Messages API.</div>
+        <div class="ai-sub">Calls <code>GET /api/report</code> &mdash; Claude decides which workstreams to investigate via tool calls (not handed the full dataset), then writes the narrative.</div>
       </div>
       <button id="gen-btn" onclick="generateNarrative()">Generate Executive Summary</button>
     </div>
     <div class="narrative-box" id="narrative-out">
       <span class="placeholder">Click "Generate Executive Summary" to call the live /api/report endpoint.</span>
     </div>
+    <div id="trace-box" class="trace-box hidden"></div>
   </div>
 
   <footer id="footer-note">DEMO &mdash; connect your Jira, GitLab, and Anthropic credentials in .env to make this fully live. See README.md.</footer>
